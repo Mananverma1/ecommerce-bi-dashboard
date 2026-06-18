@@ -1,0 +1,10 @@
+# Ignore local environment config or database files with raw credentials
+config/database.php
+
+# Ignore user-uploaded product images so they don't bloat your repository
+public/assets/uploads/*
+!public/assets/uploads/.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db
