@@ -6,30 +6,25 @@ An end-to-end data engineering pipeline and real-time Business Intelligence dash
 
 The enterprise data workflow follows a strict decoupled operational-to-analytical progression pattern:
 
-[Storefront App (PHP/HTML)] 
-       │
-       ▼ (Real-time Writes)
-┌──────────────────────────────────────┐
-│  MySQL Database (ecommerce_oltp)    │ ◄─── Operational Layer (OLTP)
-└──────────────────────────────────────┘
-       │
-       ▼ (Scheduled/Triggered Batch Extract)
-┌──────────────────────────────────────┐
-│  Python ETL Pipeline (Pandas Engine) │ ◄─── Transformation & Aggregation Layer
-└──────────────────────────────────────┘
-       │
-       ▼ (Bulk Loading & Upsert/Merge)
-┌──────────────────────────────────────┐
-│  MSSQL Data Warehouse (ecommerce_olap)│ ◄─── Analytical Layer (OLAP Star Schema)
-└──────────────────────────────────────┘
-       │
-       ▼ (Direct Live DB Reads)
-┌──────────────────────────────────────┐
-│ Plotly Dash App (analytics_dashboard)│ ◄─── Business Intelligence View Layer
-└──────────────────────────────────────┘
+```mermaid
+graph TD
+    %% Styling Definitions
+    classDef operational fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
+    classDef pipeline fill:#1e293b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
+    classDef warehouse fill:#1e293b,stroke:#8b5cf6,stroke-width:2px,color:#f8fafc;
+    classDef view fill:#1e293b,stroke:#f59e0b,stroke-width:2px,color:#f8fafc;
 
----
+    %% Workflow Nodes
+    A[Storefront Web App<br>PHP / HTML5 / CSS3] -->|Real-time Writes| B[(MySQL Production DB<br>ecommerce_oltp)]
+    B -->|Scheduled Batch Extract| C[Python ETL Pipeline<br>Pandas Data Transformation Engine]
+    C -->|Bulk Loading & Upsert/Merge| D[(MSSQL Data Warehouse<br>ecommerce_olap - Star Schema)]
+    D -->|Direct Live DB Reads| E[Plotly Dash Interface<br>Business Intelligence Application]
 
+    %% Assigning Classes
+    class A,B operational;
+    class C pipeline;
+    class D warehouse;
+    class E view;
 ## 🛠️ Tech Stack & Systems Infrastructure
 
 * **Operational Front-End Layer:** PHP 8.x, Apache Server (XAMPP Framework), HTML5, CSS3 Media-Layouts.
