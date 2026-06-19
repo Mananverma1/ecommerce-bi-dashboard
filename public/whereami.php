@@ -1,0 +1,1 @@
+<?php echo "Server path verified! Your file is located here: " . __FILE__; ?>

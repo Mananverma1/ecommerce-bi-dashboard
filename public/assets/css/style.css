@@ -1,0 +1,127 @@
+/* public/assets/css/style.css */
+
+:root {
+    --bg-main: #0f172a;       /* Deep slate background */
+    --bg-card: #1e293b;       /* Lighter slate for panels */
+    --border-color: #334155;  /* Clean structural borders */
+    --text-main: #f8fafc;     /* Bright readable text */
+    --text-muted: #94a3b8;    /* Subdued label text */
+    --emerald-alpha: #10b981; /* Primary accent action color */
+    --emerald-hover: #059669; /* Button hover state */
+    --danger-color: #ef4444;  /* Input error notification background */
+    --success-color: #065f46; /* Success notification background */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Auth Interface Terminal Box */
+.auth-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.auth-container h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+}
+
+/* Form Layout Components */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-main);
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--emerald-alpha);
+}
+
+/* Interactive Actions */
+button {
+    background-color: var(--emerald-alpha);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 5px;
+}
+
+button:hover {
+    background-color: var(--emerald-hover);
+}
+
+/* Status Badges */
+.badge {
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.badge.danger {
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--danger-color);
+    color: #fca5a5;
+}
+
+.badge.success {
+    background-color: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--emerald-alpha);
+    color: #a7f3d0;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
