@@ -25,6 +25,9 @@ graph TD
     class C pipeline;
     class D warehouse;
     class E view;
+
+---
+
 ## 🛠️ Tech Stack & Systems Infrastructure
 
 * **Operational Front-End Layer:** PHP 8.x, Apache Server (XAMPP Framework), HTML5, CSS3 Media-Layouts.
